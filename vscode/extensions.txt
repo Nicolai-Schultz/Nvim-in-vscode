@@ -1,0 +1,5 @@
+asvetliakov.vscode-neovim
+subframe7536.custom-ui-style
+jellydn.fzf-picker
+pkief.material-icon-theme
+mvllow.rose-pine

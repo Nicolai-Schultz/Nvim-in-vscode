@@ -1,0 +1,32 @@
+// Vim-style navigation for the file explorer (nvim-tree / oil.nvim feel).
+// vscode-neovim only controls text buffers, so the explorer needs native keybindings.
+[
+  // ---- movement ----
+  { "key": "j",       "command": "list.focusDown",      "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "k",       "command": "list.focusUp",        "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "h",       "command": "list.collapse",       "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "l",       "command": "list.select",         "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "o",       "command": "list.select",         "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "g g",     "command": "list.focusFirst",     "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "shift+g", "command": "list.focusLast",      "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "ctrl+d",  "command": "list.focusPageDown",  "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "ctrl+u",  "command": "list.focusPageUp",    "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "shift+h", "command": "workbench.files.action.collapseExplorerFolders", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "/",       "command": "list.find",           "when": "filesExplorerFocus && !inputFocus" },
+
+  // ---- file operations ----
+  { "key": "a",       "command": "explorer.newFile",    "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "shift+a", "command": "explorer.newFolder",  "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "r",       "command": "renameFile",          "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "d",       "command": "deleteFile",          "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "y",       "command": "filesExplorer.copy",  "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "x",       "command": "filesExplorer.cut",   "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "p",       "command": "filesExplorer.paste", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "shift+r", "command": "workbench.files.action.refreshFilesExplorer", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "shift+y", "command": "copyRelativeFilePath", "when": "filesExplorerFocus && !inputFocus" },
+
+  // ---- leave the explorer ----
+  { "key": "q",       "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "escape",  "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "ctrl+l",  "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus && !inputFocus" }
+]
