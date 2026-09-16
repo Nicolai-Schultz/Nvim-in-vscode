@@ -74,7 +74,7 @@
 
   // ---- editing feel ----
   "editor.lineNumbers": "relative",
-  "editor.padding.top": 0,
+  "editor.padding.top": 25,
   "editor.cursorSurroundingLines": 8,
   "editor.cursorSurroundingLinesStyle": "all",
   "editor.cursorBlinking": "solid",

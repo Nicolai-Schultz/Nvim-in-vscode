@@ -57,15 +57,15 @@ if vim.g.vscode then
       { args = { px = px } })
   end
   -- <leader>F: enter fullscreen and remove padding; press again to leave and restore it.
-  local fullscreen = false
+  -- State is read from the live setting (padding > 0 means windowed), so it survives Neovim restarts.
   vim.keymap.set('n', '<leader>F', function()
-    fullscreen = not fullscreen
-    set_padding(fullscreen and 0 or PAD)
+    local current = vscode.eval("return vscode.workspace.getConfiguration('editor').get('padding.top')") or 0
+    set_padding(current > 0 and 0 or PAD)
     vscode.action('workbench.action.toggleFullScreen')
   end)
-  -- Manual fixes if the state drifts (e.g. left fullscreen via macOS gesture)
-  vim.api.nvim_create_user_command('PadOn',  function() set_padding(PAD) fullscreen = false end, {})
-  vim.api.nvim_create_user_command('PadOff', function() set_padding(0)   fullscreen = true  end, {})
+  -- Manual fixes if it drifts (e.g. left fullscreen via macOS gesture)
+  vim.api.nvim_create_user_command('PadOn',  function() set_padding(PAD) end, {})
+  vim.api.nvim_create_user_command('PadOff', function() set_padding(0)   end, {})
 else
   -- terminal Neovim only (colorschemes, LSP, statusline)
   vim.api.nvim_create_autocmd('TextYankPost', {
